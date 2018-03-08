@@ -1,0 +1,21 @@
+footer{
+    min-height: 105px;    
+    color:#333;
+    font-size: 14px;
+}
+footer .advertisement{
+    background: #ebeded;    
+    text-align: center;
+    padding: 10px 0;
+}
+footer .footer-bottom{
+    margin: 5px 10px;    
+}
+footer .footer-bottom a{
+    color:#333;    
+}
+
+::ng-deep swiper>.swiper.s-wrapper .swiper-wrapper .swiper-slide{
+    overflow: hidden !important;
+    padding: 0 5px;
+}

@@ -1,0 +1,186 @@
+<div class="school-details-wrapper" fxLayout="column" fxLayoutAlign="start stretch">
+  <div class="school-details-header" fxLayout="row">
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+      <a (click)="goBack()"><mat-icon>chevron_left</mat-icon></a>
+      <span class="page-title"> {{schoolDetails.establishmentName}}</span>
+      <span class="school-type-header">{{schoolDetails.typeOfEstablishment}}</span>
+    </div>
+  </div>
+  <div class="p-md">
+    <div class="school-details-subline">
+      <p>We are a diverse and lively school striving for excellence. We take a pride in knowing children as unique
+        individuals and have a hardworking and dedicated staff team who are committed to enabling all to succeed.</p>
+      <p>Alongside rigorously planned programmes in Literacy and Numeracy, we offer an exciting curriculum which is enriched
+        by high-quality provision, particularly in the creative arts. We ensure that children in our school are valued and
+        listened to, and place a strong emphasis on the development of social skills and self-esteem.</p>
+      <p>Childhood is a very special time, and we are committed to making it as happy and productive as possible for all of
+        the children in our care.</p>
+    </div>
+
+    <div fxLayout="row">
+      <div fxFlex.gt-xs="75">
+        <div fxLayout="column" fxLayoutGap="20px" >
+          <!-- Essential Information and Rating -->
+          <div class="" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-lg="10px">
+            <mat-card fxFlex="50">
+              <mat-card-header>
+                <mat-card-title>Essential Information </mat-card-title>
+              </mat-card-header>
+              <mat-divider></mat-divider>
+              <mat-card-content>
+                <div class="school-card-content" fxLayoutAlign="start center">
+                  <mat-icon>location_on</mat-icon>
+                  <span>
+                    {{schoolDetails.address}}
+                  </span>
+                  <span fxFlex></span>
+                  <a class="link-button" routerLink="." (click)="goToMap()">Get direction</a>
+                </div>
+                <hr>
+                <div fxLayout="row" fxLayoutWrap>
+                  <div class="essential-info-content" fxFlex="50">
+                    <mat-icon>phone</mat-icon>
+                    <span>{{schoolDetails.telephoneNo}}</span>
+                  </div>
+                  <div class="essential-info-content" fxFlex="50">
+                    <mat-icon>mail_outline</mat-icon>
+                    <span>{{schoolDetails.prefEmail}}</span>
+                  </div>
+                  <div class="essential-info-content" fxFlex="50">
+                    <mat-icon>perm_identity</mat-icon>
+                    <span>{{schoolDetails.head}}</span>
+                  </div>
+                  <div class="essential-info-content" fxFlex="50">
+                    <mat-icon>account_balance</mat-icon>
+                    <span>{{schoolDetails.localAuthority}}</span>
+                  </div>
+                  <div class="essential-info-content" fxFlex="50">
+                    <mat-icon>link</mat-icon>
+                    <a class="" href={{schoolDetails.weblink}} target="blank">Website link</a>                    
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card fxFlex>
+              <mat-card-header>
+                <mat-card-title>Rating & Demographics </mat-card-title>
+              </mat-card-header>
+              <mat-divider></mat-divider>
+              <mat-card-content>
+                <div fxLayout="column" class="school-card-content" fxLayoutAlign="center start">
+                  <div fxFlex>Ofsted rating</div>
+                  <div>
+                    <mat-basic-chip [ngClass]="setClasses(schoolDetails.rating)">{{schoolDetails.rating}}</mat-basic-chip>
+                    <a>{{schoolDetails.ofstedLastInsp}}</a>
+                  </div>
+                </div>
+                <hr>
+                <div fxLayout="row">
+                  <div class="rating-info-content" fxFlex="50">
+                    <span>Pupils</span>
+                    <p>{{schoolDetails.pupilStrength}}</p>
+                  </div>
+                  <div class="rating-info-content" fxFlex="50">
+                    <span>Age range</span>
+                    <p>{{schoolDetails.statutoryLowAge}} to {{schoolDetails.statutoryHighAge}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div fxLayout="row">
+                  <div class="rating-info-content" fxFlex="50">
+                    <span>Gender</span>
+                    <p>{{schoolDetails.gender}}</p>
+                  </div>
+                  <div class="rating-info-content" fxFlex="50">
+                    <span>Religious character</span>
+                    <p>Church of England</p>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+
+          <!-- Map Section -->
+          <div id="mapSection" class="map-details">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>Map</mat-card-title>
+                <span fxFlex></span>
+                <a class="link-button" *ngIf="!catchmentArea" (click)=catchment(true)>Show Catchment</a>
+                <a class="link-button" *ngIf="catchmentArea" (click)=catchment(false)>Hide Catchment</a>
+              </mat-card-header>
+              <mat-divider></mat-divider>
+              <div style="height:500px;">
+                <app-googlemaps [urn]=urn [distance]="0"></app-googlemaps>
+              </div>
+            </mat-card>
+          </div>
+
+          <!-- START: Chart Section -->
+          <!--Chart 1-->
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutGap.xs="10px" fxLayoutAlign.xs="start stretch">
+            <mat-card class="chart-inner" fxFlex="33" fxFlex.lt-lg="50">
+                <mat-card-header>
+                  <mat-card-title style="text-align: center">
+                    % Standards in reading, writing and mathematics
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-divider></mat-divider>
+                <mat-icon (mouseover)='mouseOver("donut")' (mouseleave)='mouseLeave("donut")'>help</mat-icon>
+                <p class="custom-tooltip" *ngIf=showDonutToolTip>
+                  This graph depicts percentage of pupils performing as per standard or above standard.<br>
+                  Pupils meet the standard if they achieve score of 100 or more in their reading and maths tests, and their teacher assesses them as 'working at the expected standard' or better in writing.<br>
+                  Pupils perform at a higher standard if they achieve a scaled score of 110 or more in their reading and maths tests, and their teacher assesses them as ‘working at a greater depth within the expected standard’ in writing.
+                </p>
+                <mat-card-content fxFlayout="row" fxFill fxLayoutAlign="space-around center">
+                  <app-donutchart fxFlex="100" [urn]=urn></app-donutchart>
+                </mat-card-content>
+            </mat-card>
+
+            <!--Chart 1-->
+            <mat-card class="chart-inner" fxFlex="33" fxFlex.lt-lg="50">
+                <mat-card-header>
+                  <mat-card-title style="text-align: center">
+                    % Gender Mix
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-divider></mat-divider>
+                <mat-icon (mouseover)='mouseOver("pie")' (mouseleave)='mouseLeave("pie")'>help</mat-icon>
+                <p class="custom-tooltip" *ngIf=showPieToolTip>This Pie chart depicts the ratio of the girls and boys in the school.</p>
+                <mat-card-content fxFlayout="row" fxFill fxLayoutAlign="space-around center">
+                  <app-piechart fxFlex="70" [urn]=urn></app-piechart>
+                </mat-card-content>
+            </mat-card>
+            
+            <!--Chart 3-->
+            <mat-card class="chart-inner" fxFlex fxFlex.lt-lg="50">
+                <mat-card-header>
+                  <mat-card-title style="text-align: center">
+                    Progress score in reading, writing and maths
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-divider></mat-divider>
+                <mat-icon (mouseover)='mouseOver("bar")' (mouseleave)='mouseLeave("bar")'>help</mat-icon>
+                <p class="custom-tooltip" *ngIf=showBarToolTip>This graph depicts how much progress pupils at this school made in reading, writing and maths between the end of KS1 and the end of KS 2, compared to pupils across England who got similar results at the end of KS 1.<br>
+                  A score above zero means pupils made more progress, than similar pupils across England<br>
+                  A negative progress score does not mean pupils have made no progress, rather it means pupils in the school made less progress compared to other similar pupils across England.
+                </p>
+                <mat-card-content fxFlayout="row" fxFill fxLayoutAlign="space-around center">
+                  <app-barchart fxFlex="70" [urn]=urn></app-barchart>
+                </mat-card-content>
+            </mat-card>
+            <!-- END: Chart Section -->                        
+          </div>
+        </div>
+      </div>
+
+      <div class="ads-section" fxFlex fxHide.xs>
+        <div class="media" fxFill>
+          <img src="\assets\images\ads.png" alt="" />
+          <img src="\assets\images\ads.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

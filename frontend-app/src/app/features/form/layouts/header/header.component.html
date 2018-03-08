@@ -1,0 +1,49 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+      <div fxFlex="230px">
+          <span><a routerLink="/"><img src="..\..\..\..\assets\images\logo-web.png" alt=""></a></span>
+      </div>    
+    <!-- Filler that pushes the menu button to the end of the toolbar -->
+    <span fxFlex></span>
+    
+    <!-- START: Mobile menu toggle -->
+    <div class="master-menu" fxShow="true" fxHide.gt-xs="true">
+        <span class="menu-toggle" (click)="toggleMenubar= !toggleMenubar"><mat-icon>reorder</mat-icon></span>
+    </div>
+    <!-- END: Mobile menu toggle -->
+
+    <div class="master-menu" fxShow="true" fxHide.lt-sm="true">
+      <!-- <a href=""><mat-icon class="example-icon">login</mat-icon></a> -->
+       <a routerLink="/findschools" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <img src="..\..\..\..\assets\icons\icon-schools.svg" alt="" />
+          <span mat-button>School</span>
+        </a>
+        <a routerLink="/compareschools" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <img src="..\..\..\..\assets\icons\icon-compare.svg" alt=""/>
+          <span mat-button>Compare</span>
+        </a>
+
+       <a [matMenuTriggerFor]="menu">
+          <img src="..\..\..\..\assets\icons\icon-profile.svg" alt=""/>
+          <span>{{loginLabel}}</span>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/signin" *ngIf= "!checkLoggedIn()">Login</button>
+            <button mat-menu-item routerLink="" (click) = "onSignOut()" *ngIf= "checkLoggedIn()">Log Out</button>
+            <button mat-menu-item routerLink="/registration" *ngIf= "!checkLoggedIn()">Registration</button>
+            <button mat-menu-item routerLink="/myaccount" *ngIf= "checkLoggedIn()">My Profile</button>
+          </mat-menu>
+        </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- START: Mobile menu toggle panel -->
+<div class="mobile-main-menu" #mobileMainMenu fxLayout="column" fxLayoutAlign="start" fxShow="{{toggleMenubar}}" fxHide.gt-xs="true">
+  <a routerLink="/findschools">Search school </a>
+  <a routerLink="/compareschools">Compare school</a>
+  <a routerLink="/signin" *ngIf= "!checkLoggedIn()">Login</a>
+  <a routerLink="/registration" *ngIf= "!checkLoggedIn()">Registration</a>
+  <a routerLink="/myaccount" *ngIf= "checkLoggedIn()">My Profile</a>
+  <a routerLink="" (click) = "onSignOut()" *ngIf= "checkLoggedIn()">Log Out</a>
+</div>
+<!-- END: Mobile menu toggle -->

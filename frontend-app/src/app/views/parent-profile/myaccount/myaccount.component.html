@@ -1,0 +1,57 @@
+<!-- <div class="find-school-panel">
+  <div class="side-nav-filter" fxFlex="20" fxFlex.sm="20">
+  <a  routerLink='/myaccount/myprofile'>My Profile</a>
+  <a  routerLink='/myaccount/wishlist'>Wishlist</a>
+  </div>
+
+  <div fxFlex>
+    <div fxFlex="80">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div> -->
+
+<div class="sidenav-wrapper">
+    <div fxLayout="row" fxLayoutAlign="start stretch"  [@myProfileSlideInOut]="myProfileState">
+        <!--START: SIDENAV-LEFT - profileSection -->          
+        <div fxFlex="340px" style="position: relative">                     
+            <a class="myProfileToggle show" (click) = "myProfileToggle()">
+                <mat-icon *ngIf="!slideVisible">chevron_left</mat-icon>
+                <mat-icon *ngIf="slideVisible">chevron_right</mat-icon>                
+            </a>        
+            <div class="myprofile-inner" fxLayout="column" fxLayoutAlign="start stretch" >
+                <div class="profile-pic-wrapper" fxLayout="column" fxLayoutAlign="center center">
+                    <img mat-card-avatar class="profile-pic" src="/assets/images/profile-image.png" alt=""/>
+                    <div class="profile-pic-btn">
+                        <a><img src="\assets\images\floating-button.png" alt="" /></a>
+                    </div>
+                    <h2>{{user.firstName | camelCase}} {{user.lastName | camelCase}}</h2>
+                </div>
+                
+                <div class="profile-navigation-links" fxLayout="column" fxLayoutAlign="stretch">
+                    <a mat-button routerLink='/myaccount/myprofile'>My Profile</a>
+                    <a mat-button routerLink='/myaccount/wishlist'>My Wishlist</a>
+                    <a mat-button routerLink="." (click) = "onSignOut()">Logout</a>
+                </div>
+        
+                <div fxFlex fxLayout="column" fxLayoutAlign="end center">
+                    <span>
+                        <a routerLink=".">Privacy policy</a> |
+                        <a routerLink=".">Cookies</a> |
+                        <a routerLink=".">Sitemap</a>                
+                    </span>
+                    <div class="copyright">@2018 Capita plc. All right reserved</div>
+                </div>
+            </div>
+        </div>
+        <!--END: SIDENAV-LEFT - profileSection -->  
+
+        <!--START:  SIDENAV-RIGHT  --> 
+        <div fxFlex>                       
+            <div class="content" fxLayout="column"  fxLayoutGap="16px">    
+                <router-outlet></router-outlet>
+            </div>                                
+        </div>
+        <!--END:  SIDENAV-RIGHT  --> 
+    </div> 
+</div>

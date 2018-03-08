@@ -1,0 +1,90 @@
+<div *ngIf="displayCardView && cardDetails.uniqueReferenceNumber" class="school-card-wrapper">
+    <mat-card fxFlex="340px">
+        <div class="school-card">
+            <div class="school-card-wrapper-header" style="position: relative">
+                <a class="close" (click)="hideCardView()"><i class="material-icons">clear</i></a>
+                <small style="text-transform: uppercase;" fxLayoutAlign="center" class="school-type">{{cardDetails.typeOfEstablishment}}</small>
+                <img mat-card-avatar class="header-image" src={{cardDetails.image}} alt="" />
+                <div class="header-icons">
+                    <!-- <a>
+                        <img src="\..\assets\icons\icon-compare.svg" alt="" (click)="addToCompare($event,cardDetails,true)" />
+                    </a> -->
+
+                    <a *ngIf="!cardDetails.isAddedToCompare" fxFlex fxLayoutAlign="end center">
+                        <img src="..\assets\icons\icon-add-to-compare.svg" (click)="addToCompare($event,cardDetails,true)" />
+                    </a>
+                    <a *ngIf="cardDetails.isAddedToCompare" fxFlex fxLayoutAlign="end center">
+                        <img src="..\assets\icons\icon-remove-from-compare.svg" (click)="addToCompare($event,cardDetails,false)" />
+                    </a>
+
+
+                    <a *ngIf="!cardDetails.visible" fxFlex fxLayoutAlign="end center">
+                        <img src="..\assets\icons\icon-add-to-favorite.svg" (click)="addToWishList($event,cardDetails,true)" />
+                    </a>
+                    <a *ngIf="cardDetails.visible" fxFlex fxLayoutAlign="end center">
+                        <img src="..\assets\icons\icon-favorate.svg" (click)="addToWishList($event,cardDetails,false)" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="school-card-wrapper-content">
+                <!--START: Header-->
+                <div class="school-card-header">
+                    <div fxLayout="column" fxFill fxLayoutWrap>
+                        <div class="school-header-details">
+                            <mat-panel-title>{{cardDetails.establishmentName}}
+                            </mat-panel-title>
+                            <div class="school-postcode">
+                                {{cardDetails.address}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END: Header-->
+
+                <!--START: Content-->
+                <mat-card class="school-overview-card">
+                    <div fxFlex="50">
+                        <mat-card-title>{{cardDetails.statutoryLowAge}} to {{cardDetails.statutoryHighAge}}</mat-card-title>
+                        <small>Age range</small>
+                    </div>
+                    <div fxFlex>
+                        <mat-card-title>{{cardDetails.gender}}</mat-card-title>
+                        <small>Gender</small>
+                    </div>
+                </mat-card>
+
+                <div class="school-card-rating">
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                        <mat-card-subtitle>Ofsted rating: </mat-card-subtitle>
+                        <mat-card-title>
+                            <mat-basic-chip [ngClass]="setClasses(cardDetails.rating)">{{cardDetails.rating}}</mat-basic-chip>
+                        </mat-card-title>
+                        <span fxFlex></span>
+                        <a class="" href={{cardDetails.weblink}} target="blank">{{cardDetails.ofstedLastInsp}}</a>
+                    </div>
+                </div>
+
+                <div class="school-card-overview" fxLayout="column">
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <span>Religious character:</span>
+                        <span class="school-card-overview-subtitle">{{cardDetails.religiousCharacter}}</span>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <span>Telephone number:</span>
+                        <span class="school-card-overview-subtitle">{{cardDetails.telephoneNum}}</span>
+                    </div>
+                </div>
+                <!--END: Content-->
+
+                <!--START: footer-->
+                <mat-action-row fxLayoutAlign="space-around start" fxLayoutGap="20px">
+                    <button mat-raised-button *ngIf=catchmentArea (click)=catchment(false)>Hide catchment</button>
+                    <button mat-raised-button *ngIf=!catchmentArea (click)=catchment(true)>Show catchment</button>
+                    <button mat-raised-button (click)=viewSchoolDetails(cardDetails.uniqueReferenceNumber)>View more...</button>
+                </mat-action-row>
+                <!--END: footer-->
+            </div>
+        </div>
+    </mat-card>
+</div>

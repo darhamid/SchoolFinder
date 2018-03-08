@@ -1,0 +1,58 @@
+                  
+ <!--START:  myProfile  -->
+ <div fxLayout="column" fxFlex class="my-profile-wrapper">
+        <!-- Title -->
+        <h2 class="page-title">My Profile</h2>
+        <form [formGroup]="myProfileForm" fxLayout="column" (ngSubmit)="updateUserProfile()">         
+           <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutWrap>                
+               <!-- PersonalDetails -->
+               <mat-card fxLayout="column" fxFlex="40"  fxFlex.md="45" fxFlex.lt-md="100"> 
+                   <h3>Personal Details</h3>
+                   <app-name [parentForm]="myProfileForm"></app-name>
+                   <mat-form-field>
+                        <input matInput placeholder="E-mail *" formControlName="email" readonly>            
+                    </mat-form-field>        
+                   <mat-form-field>
+                       <input matInput placeholder="Mobile number *" formControlName="phone1">
+                   </mat-form-field>
+                   <app-field-error [displayError]="isFieldValid('phone1')" errorMsg="Please enter valid mobile number"></app-field-error>
+               </mat-card>
+   
+               <!-- Address -->
+               <mat-card fxLayout="column" fxFlex="40" fxFlex.md="45" fxFlex.lt-md="100">
+                   <h3>Address</h3>
+                   <mat-form-field>
+                       <input type="text" matInput placeholder="Search house and street no." formControlName="addressLine1" >
+                   </mat-form-field>
+                   <mat-form-field>
+                       <input matInput placeholder="Area" formControlName="addressLine2" >
+                   </mat-form-field>
+                   <mat-form-field>
+                       <input matInput placeholder="Town" formControlName="addressLine3" >
+                   </mat-form-field>
+                   <mat-form-field>
+                       <input matInput placeholder="County" formControlName="addressLine4" >
+                   </mat-form-field>
+                   <mat-form-field>
+                       <input matInput placeholder="Postcode" formControlName="addressLine5" >
+                   </mat-form-field>
+               </mat-card>
+   
+               <!-- Subscription -->
+               <mat-card class="m-t-md" fxLayout="column" fxFlex="40" fxFlex.md="45" fxFlex.lt-md="100">
+                   <h3>Subscription</h3>
+                   <div>
+                       <span>Free</span>
+                       <span fxFlex></span>
+                       <a>(Change plan)</a>
+                   </div>                        
+               </mat-card>                                                                         
+           </div>        
+           <div class="" style="border-top: 1px solid #ccc; margin: 20px 0; padding: 20px 0" fxLayout="row" fxLayoutAlign="end start" fxLayoutGap="20px">           
+               <button mat-raised-button (click)="cancleUpdate()" >Cancel</button>   
+               <button mat-raised-button color="primary" [disabled] = myProfileForm.invalid>Update</button>                        
+           </div> 
+       </form>          
+    </div>          
+    <!--START:  myProfile  -->    
+    

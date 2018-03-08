@@ -1,0 +1,109 @@
+.school-details-wrapper{
+    color:#333;
+}
+.school-details{
+ background: url('../../../../assets/images/view-more.png')no-repeat;
+    background-size: cover;
+    height: 800px;
+}
+.school-details-header{
+    background: #15b2d2;
+    padding: 20px 10px;
+}
+
+.school-details-wrapper .page-title{    
+    color: #fff;
+    font-size: 24px;
+}
+
+.school-details-wrapper a mat-icon{
+    font-size: 40px;        
+    color:#fff;
+}
+.school-details-wrapper a mat-icon:hover{
+    color:#2e2d48;
+}
+
+.school-details-wrapper .mat-raised-button{
+    background: #2e2d48;
+}
+.m-t-xs{ margin-top: 5px;}
+.m-t-sm{ margin-top: 10px;}
+.m-t-md{ margin-top: 20px;}
+.p-md{padding: 20px;}
+
+.school-details-subline{
+     padding-bottom: 20px;
+}
+.essential-info-content{
+    padding: 20px 10px;
+}
+.rating-info-content{
+    padding: 10px;     
+}
+.essential-info-content mat-icon{
+    vertical-align: bottom;
+}
+.rating-info-content:nth-child(even){
+    border-left: 1px solid #f1f1f1;
+    padding-left: 20px;
+}
+.rating-info-content p{
+    font-weight: bold;
+}
+.school-details-wrapper mat-card-title{
+    font-size: 20px;
+    font-weight: bold;
+}
+.school-details-wrapper hr{border:1px solid #f1f1f1;}
+
+.map-details mat-card{
+    padding: 24px 0 0 0;
+}
+.map-details mat-card-header{
+ padding: 0 10px 10px 20px;
+}
+ 
+.link-button{
+    border: 1px solid #15b2d2;
+    border-radius: 2px;
+    padding: 10px 20px;
+}
+.school-card-content{
+    padding: 20px 0;
+    min-height: 90px; 
+}
+
+.school-details-wrapper mat-basic-chip{
+    padding: 10px;
+    margin-right: 20px;
+}
+
+.chart-inner mat-card-header{
+    min-height: 60px;
+}
+.chart-inner mat-card-header mat-card-title{ font-size: 18px;}
+.ads-section .media{
+    min-width: 0;
+}
+.ads-section .media img{   
+    max-width: 100%; 
+}
+
+.custom-tooltip{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    color:#fff;
+    font-size: 12px;
+    line-height: 1.6em;
+    width: 300px;
+    padding: 5px 10px;
+    border-radius: 6px;    
+ }
+ .school-type-header{
+     background:#21869B; 
+     color:#fff; 
+     padding:10px; 
+     font-size: 12px;
+     text-transform: uppercase;
+    }

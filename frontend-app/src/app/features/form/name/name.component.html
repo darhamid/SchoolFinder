@@ -1,0 +1,12 @@
+<div [formGroup]="parentForm" fxLayout="column">
+  <!-- First Name -->
+  <mat-form-field>
+    <input matInput placeholder="First Name *" formControlName="firstName">
+  </mat-form-field>     
+  <app-field-error [displayError]="isFieldValid('firstName')" errorMsg="Please enter valid first name"></app-field-error>
+  <!-- Last Name -->
+  <mat-form-field>
+    <input matInput placeholder="Last Name *" formControlName="lastName">
+  </mat-form-field>          
+  <app-field-error [displayError]="isFieldValid('lastName')" errorMsg="Please enter valid last name"></app-field-error>
+</div>

@@ -1,0 +1,82 @@
+ 
+  <mat-sidenav-container fxFlex>      
+    <div *ngIf="wishListArray" class="" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">       
+        <div class="school-list-view" fxFlex>                      
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let school of wishListArray; let i = index;">
+                    <!--START: Header-->
+                    <mat-expansion-panel-header collapsedHeight="90px"  collapsedHeight.xs="120px" expandedHeight="90px"  expandedHeight.xs="90px">
+                        <div fxLayout="row" fxFill fxLayoutWrap style="padding: 10px 0;">
+                            <div fxFlex="nogrow" fxShow="true" fxHide.xs="true">
+                                <div mat-card-avatar class="header-image"></div>
+                            </div>
+                            
+                            <div class="school-header-details"fxFlex="nogrow" fxFlex.xs="grow">
+                                <mat-panel-title>{{school.establishmentName}}</mat-panel-title>                                
+                                <div class="school-postcode">
+                                    {{ school.address ? school.address : '---' }}
+                                </div>                                 
+                            </div>                                
+                            <span class="school-card-type" fxFlex fxFlex.xs="70">{{ school.typeOfEstablishment ? school.typeOfEstablishment : '---' }}</span>
+                            <div class="wishlist-selector selected" fxFlex  fxFlex.xs="10" fxLayoutAlign="end center" fxLayoutAlign.xs="start start">
+                                <img src="..\assets\icons\icon-favorate.svg" (click)="removeFromWishList($event,school.uniqueReferenceNumber, i)" />
+                            </div>
+                        </div>
+                    </mat-expansion-panel-header>
+                    <!--END: Header-->
+
+                    <!--START: Content-->
+                    <mat-card class="school-overview-card" fxLayoutWrap>                           
+                        <div fxFlex="15" fxFlex.md="20" fxFlex.xs="40">{{school.gender}}
+                            <mat-card-title>{{ school.ageRange ? school.ageRange : '---' }}</mat-card-title>
+                            <mat-card-subtitle>Age range</mat-card-subtitle>
+                        </div> 
+                        <div class="school-overview-card-divider"></div>
+                        <div fxFlex="15" fxFlex.md="20" fxFlex.xs="grow">
+                            <mat-card-title>{{school.gender ? school.gender : '---'}}</mat-card-title>
+                            <mat-card-subtitle>Gender</mat-card-subtitle>
+                        </div> 
+                        <div class="school-overview-card-divider" fxShow="true" fxHide.xs="true"></div>
+                        <div fxFlex="20" fxFlex.md="noshrink" fxFlex.xs="100">
+                            <mat-card-title>{{ school.religiousCharacter ? school.religiousCharacter : '---' }}</mat-card-title>
+                            <mat-card-subtitle>Religious character</mat-card-subtitle>
+                        </div> 
+                        <div class="school-overview-card-divider" fxShow="true" fxHide.lt-lg="true"></div>                 
+                        <div fxFlex fxFlex.lt-lg="100">
+                            <mat-card-title><mat-basic-chip [ngClass]="setClasses(school.rating)">{{ school.rating ? school.rating : '---'  }}</mat-basic-chip><small><u>{{school.ofstedLastInsp}}</u></small></mat-card-title>
+                            <mat-card-subtitle>Ofsted rating</mat-card-subtitle>
+                        </div>                            
+                    </mat-card>                
+
+                    <div fxLayout.xs="column" fxLayoutAlign.xs="start stretch"  class="school-overview-without-card">
+                        <div fxFlex="25">
+                            <mat-card-subtitle>Telephone number:</mat-card-subtitle>
+                            <mat-card-title>{{ school.telephoneNo ? school.telephoneNo : '---'  }}</mat-card-title>
+                        </div>
+                        <div fxFlex="25">
+                            <mat-card-subtitle>Principal:</mat-card-subtitle>
+                            <mat-card-title>{{ school.head ? school.head : '---'  }}</mat-card-title>
+                        </div>
+                        <div fxFlex>
+                            <mat-card-subtitle>Principal e-mail:</mat-card-subtitle>
+                            <mat-card-title>{{ school.prefEmail ? school.prefEmail : '---'  }}</mat-card-title>  
+                        </div>
+                    </div>
+                    <!--END: Content-->
+
+                    <!--START: footer-->
+                    <mat-action-row fxLayout.xs="column" fxLayoutGap="20px" fxLayoutAlign.xs="start stretch" fxLayoutWrap>
+                        <button mat-raised-button>Add to compare</button>
+                        <button mat-raised-button (click)=viewSchoolDetails(school.uniqueReferenceNumber)>View more...</button>
+                    </mat-action-row>
+                    <!--END: footer-->
+                </mat-expansion-panel> 
+            </mat-accordion>            
+        </div> 
+    </div>   
+    <div *ngIf="!wishListArray">
+        <p>Please add schools in your wishlist from map view or list view</p>
+    </div>
+</mat-sidenav-container>
+
+

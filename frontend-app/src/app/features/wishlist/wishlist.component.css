@@ -1,0 +1,115 @@
+mat-sidenav {
+    width: 320px;
+    background: #15b2d2;
+ }
+ .profile-pic{
+ 
+ }
+ .profile-navigation-links a{
+    text-align: left;
+    border-bottom: 1px solid #ebeded;
+    color:#2e2d48;  
+ }
+ .profile-navigation-links a:first-child{
+    border-top: 1px solid #ebeded;
+ }
+ 
+ .profile-navigation-links a:hover{
+    background: #2e2d48;    
+    color:#fff; 
+ }
+ 
+ /* 
+ Tips
+ 1. Deep CSS Operators
+ Using the /deep/ prefix on selectors will cause the selector to be moved out of the view encapsulation.
+ 
+ ::ng-deep or /deep/ .mat-list-item-content {
+    height: auto !important;
+  } */
+ 
+ 
+  /*START: Accordian*/
+  .school-list-view{
+     padding: 10px;
+  }
+  .school-list-view mat-basic-chip{
+    padding: 10px;
+    margin-right: 20px;
+    text-transform: uppercase;
+ }
+ .school-list-view mat-card {
+     padding: 5px 10px;
+ }
+ .school-overview-card div{   
+    margin: 10px;  
+ }
+ .school-overview-card-divider{
+    min-height: 50px;
+    border-left: 1px solid #ccc; 
+ }
+ .school-overview-card div:first-child{
+     border: 0;
+     padding: 0;
+ }
+ .school-overview-card mat-card-title, .school-overview-without-card mat-card-title{
+    font-size: 18px;
+ }
+ .school-overview-card mat-card-subtitle{
+    margin: 0;    
+ }
+ .school-overview-without-card mat-card-subtitle{margin: 5px 0;}
+ .school-overview-without-card{
+    margin: 20px 0;
+ }
+ .school-overview-without-card span{
+    display: flex;
+ }
+ .school-list-view mat-action-row button{
+    background: #15b2d2;
+    color: #fff;
+ }
+  .header-image {
+    background-image: url('/assets/images/profile-image.png');
+    background-size: cover;    
+    padding: 15px;
+    margin-right: 10px;
+  }
+
+  .school-card-type{
+    text-transform: uppercase;
+    color: #999;
+    font-size: 14px;
+    padding-top: 3px; 
+}
+
+  
+  mat-panel-title{
+      color: #2e2d48;
+      font-weight: bold;    
+      font-size: 18px;
+  }
+  mat-panel-title span{
+    color: #999;
+    font-weight: lighter;
+    margin-left:20px;
+    font-size: 14px;
+    margin-top: 4px;
+ }
+ .school-postcode{
+    display: flex;
+    margin-top: 10px;
+    color: #2e2d48;
+ }
+  .mat-card-avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .wishlist-selector{
+      margin: 0 20px;
+  }
+  .wishlist-selector.selected mat-icon{
+    color:#f00;
+ }

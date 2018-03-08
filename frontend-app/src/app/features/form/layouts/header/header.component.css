@@ -1,0 +1,118 @@
+mat-toolbar {
+  position: fixed;
+  z-index: 999;
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.master-menu a, .master-menu mat-icon{
+    color: #fff;
+ }
+ .master-menu a{
+    display: inline-block;
+    font-size: 14px;
+    margin: 0 10px;
+    padding: 0 10px;
+    text-align: center;
+    box-sizing: border-box;
+    border-bottom: 5px solid transparent;
+    font-weight: normal;
+    text-decoration: none;
+ }
+ .master-menu a:hover{
+   border-bottom: 5px solid #fff;
+ }
+ .master-menu a.active{
+   border-bottom: 5px solid #fff;
+ }
+ .master-menu span{
+    display: block;
+ }
+ .master-menu img{
+    margin-bottom: -15px;
+ }
+ .master-menu .menu-toggle{
+   border:none ;
+   background: rgba(255, 255, 255, 0.4);
+   cursor: pointer;
+   padding: 10px 5px 0 5px;
+ }
+
+ .master-menu a.menu-toggle mat-icon{
+  margin-top:10px;
+}
+
+ mat-toolbar{
+    background: #2e2d48;
+    color:#fff;
+ }
+
+
+ /*Start: GlobalSearch*/
+mat-form-field{
+  width: 500px;
+}
+.main-search-wrapper{
+  background: rgba(255, 255, 255, 0.6);
+  padding: 20px 20px 0 20px;
+  border-radius: 10px;
+}
+.main-search-radio-wrapper{
+  font-size: 14px;
+}
+mat-radio-button{
+  margin-left: 10px;
+}
+
+.main-search input{
+  background: #fff;
+  border: 3px solid #abbac1;
+  height: 45px;
+  padding: 0 10px;
+  border-right: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 100%;
+  color: #2e2d48;
+}
+.search-icon{
+  background: #15b2d2;
+  border: 3px solid #abbac1;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left: none;
+  color:#fff;
+  padding: 10px 10px 0 10px;
+  margin-top: -1px;
+  cursor: pointer;
+}
+.gps-icons{
+  position: absolute;
+  right: 130px;
+  margin: 10px 0 0 0;
+}
+::ng-deep .mat-menu-panel {
+  margin: 60px 0 0 10px;
+}
+
+
+.mobile-main-menu{
+  background: #2e2d48;
+}
+.mobile-main-menu a{
+  border-bottom: 1px solid #abbac1;
+  color: #fff;
+  padding: 10px;
+  font-size: 14px;
+}
+.mobile-main-menu a:first-child{
+  border-top: 1px solid #abbac1;
+}
+
+/*End: GlobalSearch*/

@@ -1,0 +1,52 @@
+/*Start: GlobalSearch*/
+mat-form-field{
+     
+ }
+ .main-search-wrapper{
+    background: rgba(255, 255, 255, 0.6);
+    padding: 20px 20px 0 20px;
+    border-radius: 10px;
+ } 
+ 
+ .main-search input{    
+    background: #fff;
+    color:#333;
+    font-size: 16px;
+    border: 3px solid #abbac1;
+    height: 45px;
+    padding: 0 10px;
+    border-right: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    width: 100%;
+ }
+ .search-icon{
+    background: #15b2d2;
+    border: 3px solid #abbac1;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left: none;
+    color:#fff;  
+    padding: 10px 10px 0 10px;  
+    margin-top: -1px;
+    cursor: pointer;
+ }
+ .gps-icons{
+    position: absolute;
+    right: 60px;
+    margin: 10px 0 0 0;
+ }
+ 
+.main-search-input::ng-deep .mat-input-underline {
+    display: none;
+ }
+ .main-search-input::ng-deep .mat-form-field-label-wrapper{
+    margin: 10px 10px 0 15px;
+    font-size: 16px;
+ }
+ .main-search-input::ng-deep .mat-input-infix{
+    padding: 0;
+ }
+.main-search-input::ng-deep .mat-input-placeholder{color:#ccc;}
+  
+ /*End: GlobalSearch*/

@@ -1,0 +1,41 @@
+<div style="background: #F9FAFB; height: 100%; padding-top: 110px">
+  <div class="signin-form" fxLayout="row" fxLayoutAlign="center center">
+  <div fxFlex="40" fxFlex.lt-md="90">
+    <mat-toolbar color="primary" style="background: #2e2d48 ">
+      <span>Sign in </span>
+    </mat-toolbar>
+    <mat-card fxLayout="column">
+
+      <form [formGroup]="signInForm" (ngSubmit)="onSignin()" fxLayout="column">
+
+        <!--e-mail-->
+        <mat-form-field>
+            <input formControlName="email" matInput placeholder="E-mail *" >
+        </mat-form-field>
+
+        <!--password-->
+        <mat-form-field>
+            <input matInput type="password" formControlName="password" placeholder="Password *">
+        </mat-form-field>
+
+        <mat-error *ngIf="error">{{error}}</mat-error>
+
+        <div class="forgot-password">
+         <!-- <a routerLink="/">Create new account</a> | <a routerLink="">Request new password</a> -->
+          <a routerLink="/registration">Create new account</a>
+        </div>
+
+        <div class="button-row">
+            <button mat-raised-button  color="primary" (click)="onSignin()">SignIn</button>
+        </div>
+
+        <!-- <div class="center">
+          <h2>or</h2>
+          <a ><img src="..\..\..\..\assets\images\loginWithFacebook.png" width="250" alt="" /></a>
+        </div>     -->
+      </form>
+    </mat-card>
+  </div>
+</div>
+</div>
+

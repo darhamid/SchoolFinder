@@ -1,0 +1,20 @@
+<div class="find-school-panel">
+  <div id="side-nav-filter" class="side-nav-filter" fxFlex="340px"  [@slideInOut]="menuState" >
+    <a class="side-nav-toggle show" (click) = "sideNavToggle()">
+      <mat-icon *ngIf="!slideVisible">chevron_left</mat-icon>
+      <mat-icon *ngIf="slideVisible">chevron_right</mat-icon>
+    </a>
+    <app-filterschool [urn]=urn></app-filterschool>
+  </div>
+
+  <div class="map-view" fxFlex fxFlex.xs *ngIf=viewComponent.filterForm.value.view>
+  
+    <app-googlemaps [urn]=urn [distance]="20" (onMarkerClicked)="onMarkerClicked($event)"></app-googlemaps>
+    <app-cardview></app-cardview>
+   
+  </div>
+
+  <div class="school-listview-wrapper" fxFlex *ngIf=!viewComponent.filterForm.value.view>
+    <app-schoollist [urn]=urn></app-schoollist>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+::ng-deep .legend {                                                   
+    color: black;
+    opacity: 1;
+    font-style: normal;                                                      
+  }                                                           
+::ng-deep  rect {                                                      
+    stroke-width: 2;                                          
+  }
+  
+  ::ng-deep .legend rect {
+    stroke:black;
+    opacity:1;
+}
+
+::ng-deep #donutLegText {                                                   
+  font-size: 12px;
+  font-weight: bold;
+  color: black;
+  opacity: 1;
+  font-style: normal;                                                      
+}     

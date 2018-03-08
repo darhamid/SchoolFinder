@@ -1,0 +1,20 @@
+<!--START:  Compare  -->
+<div fxLayout="column" fxFlex class="my-profile-wrapper">
+  <!-- Title -->
+  <h2 class="page-title">Compare schools</h2>
+
+
+  <!--TABLE-->
+  <div fxLayout="row">
+    <div class="example-container mat-elevation-z8" *ngIf=dataSource>
+      <table>
+        <tr *ngFor="let school of dataSource">
+          <td *ngFor="let key of school | keys" [innerHTML]="school[key]"></td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <p *ngIf=!dataSource>Please add schools for comparison from map view or wishlist screen</p>
+    </div>
+  </div>
+</div>

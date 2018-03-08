@@ -1,0 +1,7 @@
+/*MyProfile*/
+.my-profile-wrapper{
+    margin: 0 40px;    
+}
+.my-profile-wrapper .page-title{ color:#2e2d48; padding-bottom: 10px; border-bottom: 1px solid #ccc;}
+.my-profile-wrapper .page-subtitle{ color:#2e2d48;}
+.m-t-md{margin-top: 20px;}

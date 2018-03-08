@@ -1,0 +1,63 @@
+.sidenav-wrapper{
+
+ }
+ 
+ .myprofile-inner {  
+    background: #15b2d2;
+    height: 100vh;
+ }
+ .myprofile-inner a{
+    color: #2e2d48;
+    text-decoration: none;
+ }
+ .myprofile-inner h2{
+    color: #fff;
+ }
+ .myprofile-inner .copyright{
+    padding: 20px 10px;
+    color:#fff;
+ }
+ .profile-pic-wrapper{
+    padding: 20px 0;
+ }
+ img.profile-pic {                
+    width: 150px;
+    height: 150px;
+  }
+ .profile-pic-btn{
+    position: absolute;
+    margin-left: 80px;
+    margin-top: 30px;  
+ }
+ 
+ .profile-navigation-links{
+    padding: 10px 0;
+  }  
+ .profile-navigation-links a{
+    text-align: left;
+    border-bottom: 1px solid #9DF1F1;
+    font-size: 18px;
+    padding: 5px 20px;
+ }
+ .profile-navigation-links a:first-child{
+    border-top: 1px solid #9DF1F1;
+ }
+ 
+ .profile-navigation-links a:hover{
+    background: #2e2d48;    
+    color:#fff; 
+ }
+
+ .myProfileToggle{
+  position: absolute; 
+  background: rgba(255, 255, 255, 0.8); 
+  top: 4px; 
+  right: 0; 
+  margin:0 -44px 0 0; 
+  z-index: 9999;
+}
+
+.myProfileToggle mat-icon{
+  padding: 0 15px 15px 5px;
+  font-size: 35px;
+}

@@ -1,0 +1,16 @@
+mat-form-field{
+    width: 500px;
+}
+
+.landing-features{    
+    height: 300px;
+}
+.landing-features .feature-box{
+    text-align: center;
+    width: 150px;
+    min-height: 150px;     
+}
+.map-section{
+    min-height: 500px; 
+    
+}

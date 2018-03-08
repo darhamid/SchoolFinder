@@ -1,0 +1,27 @@
+
+
+::ng-deep .containerBarChart text {
+  fill: black;
+  font: 14px sans-serif;
+  text-anchor: end;
+}
+
+::ng-deep .bar {
+  fill: steelblue;
+  margin: 30px;
+}
+
+::ng-deep .legend {
+  opacity:0.8;
+}
+
+  .axis text {
+    font: 10px sans-serif;
+  }
+
+  ::ng-deep #barLegText {
+    fill: black;
+    font: 14px sans-serif;
+    text-anchor: end;
+    font-weight: bold;
+  }  

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="23px" viewBox="0 0 24 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="my-wishlist" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1299.000000, -188.000000)">
+        <g id="list-view-expanded" transform="translate(391.000000, 154.000000)" fill="#15B2D2" fill-rule="nonzero">
+            <g id="add-to-wishlist" transform="translate(908.000000, 34.000000)">
+                <path d="M23.9589231,7.03476923 C23.6086154,3.17907692 20.8795385,0.381692308 17.4641538,0.381692308 C15.1887692,0.381692308 13.1053846,1.60615385 11.9330769,3.56861538 C10.7713846,1.58076923 8.77338462,0.381230769 6.53446154,0.381230769 C3.11953846,0.381230769 0.39,3.17861538 0.0401538462,7.03430769 C0.0124615385,7.20461538 -0.101076923,8.10092308 0.244153846,9.56261538 C0.741692308,11.6709231 1.89092308,13.5886154 3.56676923,15.1070769 L11.9275385,22.6943077 L20.4318462,15.1075385 C22.1076923,13.5886154 23.2569231,11.6713846 23.7544615,9.56261538 C24.0996923,8.10138462 23.9861538,7.20507692 23.9589231,7.03476923 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,83 @@
+
+    <mat-sidenav-container fxFlex>
+            <div class="content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">      
+                <div class="school-list-view" fxFlex>                      
+                    <mat-accordion>
+                        <mat-expansion-panel *ngFor="let school of schools">
+                            <!--START: Header-->
+                            <mat-expansion-panel-header collapsedHeight="90px" collapsedHeight.xs="120px" expandedHeight="90px" expandedHeight.xs="90px">
+                                <div fxLayout="row" fxFill fxLayoutWrap style="padding: 10px 0;">
+                                    <div fxFlex="nogrow" fxShow="true" fxHide.xs="true">
+                                        <div mat-card-avatar class="header-image"></div>
+                                    </div>
+                                    <div class="school-header-details" fxFlex="nogrow" fxFlex.xs="grow">
+                                        <mat-panel-title>{{school.establishmentName}}</mat-panel-title>
+                                        <div class="school-postcode">
+                                          {{ school.address ? school.address : '---' }}
+                                        </div>                                 
+                                    </div>        
+                                    <span class="school-card-type" fxFlex fxFlex.xs="70">{{ school.typeOfEstablishment ? school.typeOfEstablishment : '---' }}</span>                        
+                                    <div *ngIf="!school.visible" class="wishlist-selector" fxFlex  fxFlex.xs="10" fxLayoutAlign="end center" fxLayoutAlign.xs="start start">
+                                        <img src="..\assets\icons\icon-add-to-favorite.svg" (click)="addToWishList($event,school,true);" />
+                                    </div>
+                                    <div *ngIf="school.visible"  class="wishlist-selector selected" fxFlex  fxFlex.xs="10" fxLayoutAlign="end center" fxLayoutAlign.xs="start start">
+                                        <img src="..\assets\icons\icon-favorate.svg" (click)="addToWishList($event,school,false);" />
+                                    </div>
+                                </div>
+                            </mat-expansion-panel-header>
+                            <!--END: Header-->
+    
+                            <!--START: Content-->
+                            <mat-card class="school-overview-card" fxLayoutWrap>                           
+                                <div fxFlex="15" fxFlex.md="20" fxFlex.xs="40">
+                                    <mat-card-title>{{ school.ageRange ? school.ageRange : '---' }}</mat-card-title>
+                                    <mat-card-subtitle>Age range</mat-card-subtitle>
+                                </div> 
+                                <div class="school-overview-card-divider"></div>
+                                <div fxFlex="15" fxFlex.md="20" fxFlex.xs="grow">                                   
+                                    <mat-card-title>{{school.gender && school.gender.label ? school.gender.label : '---'}}</mat-card-title>
+                                    <mat-card-subtitle>Gender</mat-card-subtitle>
+                                </div> 
+                                <div class="school-overview-card-divider" fxShow="true" fxHide.xs="true"></div>
+                                <div fxFlex="20" fxFlex.md="noshrink" fxFlex.xs="100">
+                                    <mat-card-title>{{ school.religiousCharacter && school.religiousCharacter.label ? school.religiousCharacter.label : '---' }}</mat-card-title>
+                                    <mat-card-subtitle>Religious character</mat-card-subtitle>
+                                </div> 
+                                <div class="school-overview-card-divider" fxShow="true" fxHide.lt-lg="true"></div>
+                                <div fxFlex fxFlex.lt-lg="100">
+                                    <mat-card-title><mat-basic-chip [ngClass]="setClasses(school.rating)">{{ school.rating ? school.rating : '---'  }}</mat-basic-chip><small><a href={{school.weblink}} target="blank">{{school.ofstedLastInsp}}</a></small></mat-card-title>
+                                    <mat-card-subtitle>Ofsted rating</mat-card-subtitle>
+                                </div>                            
+                            </mat-card>
+    
+                            <div fxLayout.xs="column" fxLayoutAlign.xs="start stretch" class="school-overview-without-card">
+                                <div fxFlex="25">
+                                    <mat-card-subtitle>Telephone number:</mat-card-subtitle>
+                                    <mat-card-title>{{ school.telephoneNo ? school.telephoneNo : '---'  }}</mat-card-title>
+                                </div>
+                                <div fxFlex="25">
+                                    <mat-card-subtitle>Principal:</mat-card-subtitle>
+                                    <mat-card-title>{{ school.head ? school.head : '---'  }}</mat-card-title>
+                                </div>
+                                <div fxFlex>
+                                    <mat-card-subtitle>Principal e-mail:</mat-card-subtitle>
+                                    <mat-card-title>{{ school.prefEmail ? school.prefEmail : '---'  }}</mat-card-title>  
+                                </div>
+                            </div>
+                            <!--END: Content-->
+    
+                            <!--START: footer-->
+                            <mat-action-row fxLayout.xs="column" fxLayoutGap="20px" fxLayoutAlign.xs="start stretch" fxLayoutWrap>
+                                <button mat-raised-button *ngIf="!school.visible" (click)="addToWishList($event,school,true);">Add to wishlist </button>
+                                <button mat-raised-button *ngIf="school.visible" (click)="addToWishList($event,school,false);">Remove From wishlist </button>
+                                <button mat-raised-button *ngIf="!school.isAddedToCompare" (click)="addToCompare($event,school,true)" >Add to compare</button>
+                                <button mat-raised-button *ngIf="school.isAddedToCompare" (click)="addToCompare($event,school,false)" >Remove From compare</button>
+                                <button mat-raised-button (click)=viewSchoolDetails(school.uniqueReferenceNumber)>View more...</button>
+                            </mat-action-row>
+                            <!--END: footer-->
+                        </mat-expansion-panel> 
+                    </mat-accordion>            
+                </div>
+            </div>
+        </mat-sidenav-container>
+    

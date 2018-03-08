@@ -1,0 +1,10 @@
+
+ .main-search-radio-wrapper{
+    font-size: 14px;
+ }
+ mat-radio-button{
+    margin-left: 10px;
+ }
+ 
+ .main-search-radio-wrapper::ng-deep .mat-radio-outer-circle{border-color: #fff;}
+ .main-search-radio-wrapper::ng-deep .mat-radio-inner-circle{border-color: #fff;}

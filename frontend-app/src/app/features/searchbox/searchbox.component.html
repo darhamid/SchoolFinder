@@ -1,0 +1,21 @@
+<div class="main-search-input">
+  <mat-form-field [floatLabel]="'never'" fxFill>                      
+    <div class="main-search">
+      <div fxFlex>              
+          <input type="text" placeholder="Search" aria-label="Number" (keydown)="onEnter($event)" matInput [formControl]="findSchoolFilter" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="option.establishmentName" (click)="getSchool(option.uniqueReferenceNumber)">
+              {{ option.establishmentName }}, {{option.postcode}}
+            </mat-option>
+          </mat-autocomplete>
+      </div>
+      <div class="search-icon">
+          <img src="..\..\..\..\..\assets\icons\icon-search.svg" (click)="getSchool(selectedSchool.uniqueReferenceNumber)" width="24" alt="" />
+      </div>
+      <i class="gps-icons">
+        <img src="..\..\..\..\..\assets\icons\icon-tracker.svg" alt="" />
+      </i>            
+    </div>
+  </mat-form-field>    
+</div>
+<!-- [routerLink] = "['/findschools/'+option.uniqueReferenceNumber]" [routerLink] = "['/findschools']" [queryParams] = "{urn: option.uniqueReferenceNumber }" -->

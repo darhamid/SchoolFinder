@@ -1,0 +1,19 @@
+::ng-deep .legend {                                                   
+    opacity: 1;
+    font-style: normal;                               
+  }                                                           
+::ng-deep  rect {                                                      
+    stroke-width: 2;                                          
+  }
+  
+  ::ng-deep .legend rect {
+    stroke:black;
+    opacity:1;   
+}
+
+::ng-deep #pieLegText {
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  font-weight: bold;
+}

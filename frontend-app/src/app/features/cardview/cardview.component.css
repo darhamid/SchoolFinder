@@ -1,0 +1,138 @@
+.school-card-wrapper{
+     position: absolute;
+     top: 0;
+     right: 0;
+}
+.school-card-wrapper mat-card{
+    padding: 0;
+}
+
+.school-card-wrapper .school-card-wrapper-header{
+    padding: 10px 24px 24px 24px; 
+    background: #999;
+    color:#fff;
+    min-height: 60px;
+}
+
+.school-card-wrapper .school-card-wrapper-header .close {
+    position: absolute;
+    right: 0;
+    top:0;
+    margin: 10px;   
+    color: #fff;
+}
+
+.school-card-wrapper .school-card-wrapper-header img.header-image {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 10px auto;               
+    width: 120px;
+    height: 120px;
+  }
+  
+.school-card-wrapper .school-card-wrapper-header .header-icons{
+    position: absolute; 
+    right: 0; 
+    bottom: 0; 
+    margin: 5px;
+}
+.school-card-wrapper .school-card-wrapper-header .header-icons a{
+    padding: 2px;
+    margin: 0 2px;
+    background-color: rgba(255,255,255,0.8);
+}
+.school-card-wrapper .school-card-wrapper-header .header-icons img{
+    margin: 0 5px;
+}
+.school-card-wrapper .school-card-wrapper-content{
+    padding: 70px 24px 24px 24px;
+}
+
+.school-card {}
+
+ .school-card mat-basic-chip{
+   padding: 5px 10px;
+   margin-left: 5px; 
+   text-transform: uppercase;
+}
+.school-card mat-card {
+    padding: 5px 10px;
+}
+.school-card .school-card-rating{
+    padding-bottom: 10px;    
+}
+.school-card .school-card-rating a{
+    font-size: 12px;
+    text-decoration: underline;
+}
+.school-card-rating mat-card-subtitle{
+     font-weight: bold; 
+ }
+ .school-card mat-card-actions button{
+    background: #15b2d2;
+    color: #fff;
+
+ }
+ .school-card .school-overview-card{
+    margin: 20px 0;
+ }
+.school-card .school-overview-card div{
+   margin: 10px;  
+   padding-left: 20px;  
+}
+.school-card .school-overview-card div mat-card-title{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.school-card .school-overview-card div small{
+   color:#999;
+}
+.school-overview-card div:first-child{
+    border: 0;
+    padding: 0;
+}
+ 
+.school-card mat-action-row button{
+   background: #15b2d2;
+   color: #fff;
+}
+
+ .school-card-overview span{
+     font-size: 14px;
+     margin-bottom: 15px;
+     color: #999;
+ }
+ .school-card-overview span.school-card-overview-subtitle{
+     color:#2e2d48;
+ }
+ mat-panel-title{
+     color: #2e2d48;
+     font-weight: bold;    
+     font-size: 18px;
+ }
+ mat-panel-title span{
+   color: #999;
+   font-weight: lighter;
+   margin-left:20px; 
+   font-size: 14px;
+   margin-top: 4px;
+}
+.school-postcode{
+   display: flex;
+   margin-top: 10px; 
+   color: #2e2d48;
+}
+ .mat-card-avatar {
+   height: 40px;
+   width: 40px;
+   border-radius: 50%;
+   flex-shrink: 0;
+ }
+ .wishlist-selector{
+     margin: 0 20px;
+ }
+ .wishlist-selector.selected mat-icon{
+   color:#f00;
+}

@@ -1,0 +1,66 @@
+<div style="background: #F9FAFB; height: 100%; padding-top: 50px">
+  <div class="registration-form" fxLayout="row" fxLayoutAlign="center center">
+    <div fxFlex="40" fxFlex.lt-md="90" fxFlex.md="70">
+      <mat-toolbar color="primary" style="background: #2e2d48 ">
+        <span>Create new account </span>
+      </mat-toolbar>
+      <mat-card>
+
+        <form [formGroup]="registrationForm" fxLayout="column" (ngSubmit)="onRegistrationSubmit()">
+          <!-- E-mail -->
+          <mat-form-field>
+            <input matInput placeholder="E-mail *" formControlName="email">
+          </mat-form-field>
+          <app-field-error [displayError]="isFieldValid('email')" errorMsg="Please enter valid email" ></app-field-error>
+          <!-- Password -->
+          <mat-form-field>
+            <input matInput type="password" placeholder="Password *" formControlName="password">
+          </mat-form-field>
+          <app-field-error [displayError]="isPasswordValid('password')" errorMsg="Password should be minimum 6 characters, cantains 1 uppercase, 1 lowercase letter and 1 number"></app-field-error>
+          <!-- Confirm Password -->
+          <mat-form-field>
+            <input matInput type="password" placeholder="Confirm Password *" formControlName="confirmPassword">
+          </mat-form-field>
+          <app-field-error [displayError]="registrationForm.errors" errorMsg="Password Don't Match"></app-field-error>
+          <!-- Name -->
+          <app-name [parentForm]="registrationForm"></app-name>
+          <!-- Address -->
+          <app-address [parentForm]="registrationForm" [childForm]="'residentialAddress'"></app-address>
+          <!-- xx -->
+          <mat-form-field>
+            <input matInput placeholder="Mobile Number *" formControlName="phone1">
+          </mat-form-field>
+          <app-field-error [displayError]="isFieldValid('phone1')" errorMsg="Please enter valid mobile number"></app-field-error>
+
+          <!--Checkbox -->
+          <mat-checkbox formControlName="termsandconditions" >I have read and agree to the terms of service and privacy policy</mat-checkbox>
+
+          <!--Radio: Selection-->
+          <div ng-controller="ssbCtrl">
+            <mat-radio-group>
+              <p><strong>Subscription</strong></p>
+              <div fxLayoutGap="20px">
+                <mat-radio-button value="free" checked >Free</mat-radio-button>
+                <mat-radio-button value="premium">Premium</mat-radio-button>
+              </div>
+            </mat-radio-group>
+
+            <div class="fxFlex" >
+              <div class="" fxFlex="50">
+                <p>Powered by</p>
+                <img src="..\assets\images\pay360.png" alt="" width="150"/><br>
+                <img src="..\assets\images\visa-mastercard-amex.png" alt="" width="150"/>
+              </div>
+              <div class="" fxFlex="50">
+                <p>Amount to be paid: £ 20 </p>
+                <button mat-raised-button color="primary">Proceed to pay</button>
+              </div>
+            </div>
+          </div>
+          <br>
+          <button class="reg-button" mat-raised-button color="primary" [disabled] = registrationForm.invalid>Create New Profile</button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

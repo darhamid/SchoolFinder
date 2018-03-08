@@ -1,0 +1,68 @@
+  <div class="side-nav-filter">    
+    <form [formGroup] = "filterForm">
+        <div class="searchbox filter-field" fxLayout="column">
+            <app-searchby></app-searchby>
+            <app-searchbox></app-searchbox>
+        </div>
+        <div class="filter-field" fxLayout="row" style="padding: 20px 0;">
+            <span class="control-label" style="margin-right: 15px"> List view </span>
+            <mat-slide-toggle color="primary" formControlName="view"></mat-slide-toggle>
+            <span class="control-label" style="margin-left: 15px">Map view </span>
+        </div>
+
+        <div class="filter-field" fxLayout="column">
+            <span class="control-label">Distance ( {{filterForm.get('distance').value}} miles )</span>
+            <mat-slider color="primary" thumbLabel tickInterval="1" value="50" formControlName="distance"></mat-slider>
+        </div>
+
+        <div class="filter-field" fxLayout="column">
+            <span class="control-label">Age range</span>
+            <mat-slider color="primary" thumbLabel tickInterval="1" min="3" max="16" formControlName="ageRange" value="3"></mat-slider>
+        </div>
+
+        <div class="filter-field">
+            <mat-form-field fxLayout="column">
+                <mat-select formControlName="rating">
+                    <mat-option value="1">Outstanding</mat-option>
+                    <mat-option value="2">Good</mat-option>
+                    <mat-option value="3">Satisfactory</mat-option>
+                    <mat-option value="4">Inadequate</mat-option>
+                </mat-select>
+                <mat-placeholder>Rating</mat-placeholder>
+            </mat-form-field>
+        </div>
+        <div class="filter-field">
+            <mat-form-field fxLayout="column">
+                <mat-select formControlName="gender">
+                    <mat-option value="Girls">Girls Only</mat-option>
+                    <mat-option value="Boys">Boys Only</mat-option>
+                    <mat-option value="Mixed">Mixed</mat-option>
+                </mat-select>
+                <mat-placeholder>Gender</mat-placeholder>
+            </mat-form-field>
+        </div>
+        <div class="filter-field">
+            <mat-form-field fxLayout="column">
+                <mat-select formControlName="type">
+                    <mat-option value="State Funded">State Funded</mat-option>
+                    <mat-option value="Independent">Independent</mat-option>
+                </mat-select>
+                <mat-placeholder>Type</mat-placeholder>
+            </mat-form-field>
+        </div>
+        <div class="filter-field">
+            <mat-form-field fxLayout="column">
+                <mat-select formControlName="religiousCharacter">
+                    <mat-option value="Church of England">Church of England</mat-option>
+                    <mat-option value="Roman Catholic">Roman Catholic</mat-option>
+                    <mat-option value="Anglican">Anglican</mat-option>
+                    <mat-option value="None">None</mat-option>
+                    <mat-option value="Does not apply">Does not apply</mat-option>
+                </mat-select>
+                <mat-placeholder>Religious Character</mat-placeholder>
+            </mat-form-field>
+        </div>
+        <!-- <button mat-raised-button color="primary">Filter</button>                                   -->
+    </form>
+</div>
+
